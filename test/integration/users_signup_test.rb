@@ -27,5 +27,4 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     assert_template 'users/show'
     assert_not flash.alert
   end
-  end
 end
