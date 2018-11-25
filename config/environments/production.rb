@@ -88,4 +88,19 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  
+  # Dane do SendGrida na heroku to ten add-on do emaili
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  host = 'https://sample-app7.herokuapp.com/'
+  config.action_mailer.default_url_options = { host: host }
+  ActionMailer::Base.smtp_settings = {
+    :address        => 'smtp.sendgrid.net',
+    :port           => '587',
+    :authentication => :plain,
+    :user_name      => ENV['app112156456@heroku.com'],
+    :password       => ENV['k0bxik0e4075'],
+    :domain         => 'heroku.com',
+    :enable_starttls_auto => true
+  }
 end
