@@ -46,7 +46,7 @@ class PasswordResetsController < ApplicationController
     # Before filters
 
     def get_user
-      @user = User.find_by(id: params[:id])
+      @user = User.find_by(email: params[:email])
     end
 
     # Confirms a valid user.
